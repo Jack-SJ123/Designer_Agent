@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ActionPlan",
+  "type": "object",
+  "required": ["plan_id", "risk_level", "actions"],
+  "properties": {
+    "plan_id": {"type": "string"},
+    "risk_level": {"enum": ["low", "medium", "high"]},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "required_approvals": {"type": "array", "items": {"type": "string"}},
+    "actions": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/CadAction"},
+      "minItems": 1
+    }
+  },
+  "definitions": {
+    "CadAction": {
+      "type": "object",
+      "required": ["action_type", "target_selector", "parameters", "rollback_hint"],
+      "properties": {
+        "action_type": {
+          "enum": [
+            "locate_block",
+            "replace_block_variant",
+            "update_attribute",
+            "insert_symbol",
+            "add_leader_note",
+            "revision_cloud"
+          ]
+        },
+        "target_selector": {"type": "object"},
+        "parameters": {"type": "object"},
+        "tolerance": {"type": ["number", "null"]},
+        "rollback_hint": {"type": "string"}
+      }
+    }
+  }
+}
