@@ -16,6 +16,15 @@ Phase 1 implements a persistent task lifecycle with approval gating and dry-run 
 - `POST /tasks/{task_id}/plan`
 - `POST /tasks/{task_id}/approve`
 - `POST /tasks/{task_id}/execute`
+# Electrical Designer Agent (v1 Scaffold)
+
+This repository contains a starter architecture for an AI-assisted Electrical Designer agent focused on AutoCAD drawing updates with human approval gates.
+
+## Scope (v1)
+- API-first orchestrator scaffold
+- JSON schemas for action planning and QA
+- Rule profile examples
+- CAD adapter interface stubs
 
 ## Run (local)
 ```bash
@@ -29,3 +38,7 @@ uvicorn app.main:app --app-dir backend --reload
 ```bash
 pytest backend/tests -q
 ```
+## Next steps
+1. Implement task persistence and job queue.
+2. Add AutoCAD executor integration (local laptop runner).
+3. Add approval UI and auth.
