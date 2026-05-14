@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Any, Literal
 
 from pydantic import BaseModel, Field
@@ -10,6 +11,32 @@ class TaskRequest(BaseModel):
     requested_change: str
     source_docs: list[str] = Field(default_factory=list)
     requester: str
+
+
+class CreateTaskRequest(BaseModel):
+    project_id: str
+    drawing_id: str
+    requested_change: str
+    source_docs: list[str] = Field(default_factory=list)
+    requester: str
+
+
+class TaskRecord(BaseModel):
+    task_id: str
+    project_id: str
+    drawing_id: str
+    requested_change: str
+    source_docs: list[str] = Field(default_factory=list)
+    requester: str
+    status: Literal["queued", "planned", "approved", "running", "passed", "failed"]
+    approved_by: str | None = None
+    approved_at: datetime | None = None
+    created_at: datetime
+    updated_at: datetime
+
+
+class ApproveRequest(BaseModel):
+    approved_by: str
 
 
 class CadAction(BaseModel):
@@ -40,3 +67,10 @@ class QaReport(BaseModel):
     checks_run: list[str]
     violations: list[str]
     status: Literal["pass", "fail"]
+
+
+class ExecuteResponse(BaseModel):
+    task: TaskRecord
+    plan: ActionPlan
+    qa_report: QaReport
+    execution: dict[str, Any]
