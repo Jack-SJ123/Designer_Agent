@@ -39,6 +39,10 @@ class ApproveRequest(BaseModel):
     approved_by: str
 
 
+class ExecuteRequest(BaseModel):
+    idempotency_key: str
+
+
 class CadAction(BaseModel):
     action_type: Literal[
         "locate_block",

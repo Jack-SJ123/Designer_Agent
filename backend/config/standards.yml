@@ -1,0 +1,9 @@
+allowed_actions:
+  - locate_block
+  - replace_block_variant
+  - update_attribute
+  - insert_symbol
+  - add_leader_note
+  - revision_cloud
+required_approvals:
+  - electrical_checker
