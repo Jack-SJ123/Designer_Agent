@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "allowed_actions": [
+    "open_drawing",
+    "insert_symbol",
+    "replace_block_variant",
+    "update_attribute",
+    "add_leader_note",
+    "update_titleblock",
+    "add_revision_cloud",
+    "save_drawing"
+  ],
+  "action_schema": {
+    "action_type": "string",
+    "target": "object",
+    "params": "object",
+    "reason": "string"
+  }
+}
