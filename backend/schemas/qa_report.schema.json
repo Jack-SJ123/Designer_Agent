@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QaReport",
+  "type": "object",
+  "required": ["ruleset_version", "checks_run", "violations", "status"],
+  "properties": {
+    "ruleset_version": {"type": "string"},
+    "checks_run": {"type": "array", "items": {"type": "string"}},
+    "violations": {"type": "array", "items": {"type": "string"}},
+    "status": {"enum": ["pass", "fail"]}
+  }
+}

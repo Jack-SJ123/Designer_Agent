@@ -1,0 +1,27 @@
+{
+  "drawing_path": "C:/demo/SLD-001.dwg",
+  "plan": {
+    "plan_id": "plan-demo-001",
+    "risk_level": "medium",
+    "assumptions": [
+      "Drawing exists and is writable",
+      "Block name DEVICE_TAG exists with TAG attribute"
+    ],
+    "required_approvals": [
+      "electrical_checker"
+    ],
+    "actions": [
+      {
+        "action_type": "update_attribute",
+        "target_selector": {
+          "block_name": "DEVICE_TAG"
+        },
+        "parameters": {
+          "attribute": "TAG",
+          "value": "MCC-101-FDR-01"
+        },
+        "rollback_hint": "Restore TAG from pre-run backup copy"
+      }
+    ]
+  }
+}

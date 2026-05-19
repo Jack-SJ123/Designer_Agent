@@ -1,0 +1,17 @@
+{
+  "drawing_path": "C:/demo/SLD-001.dwg",
+  "plan": {
+    "plan_id": "plan-demo",
+    "risk_level": "medium",
+    "assumptions": ["Drawing accessible"],
+    "required_approvals": ["electrical_checker"],
+    "actions": [
+      {
+        "action_type": "update_attribute",
+        "target_selector": {"block_name": "DEVICE_TAG"},
+        "parameters": {"attribute": "TAG", "value": "MCC-101-FDR-01"},
+        "rollback_hint": "Restore from previous snapshot"
+      }
+    ]
+  }
+}
